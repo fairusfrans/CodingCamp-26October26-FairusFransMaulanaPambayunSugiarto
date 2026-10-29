@@ -1,0 +1,73 @@
+{
+  "specName": "Expense & Budget Visualizer",
+  "version": "1.0.0",
+  "lastUpdated": "2026-10-29",
+  "tasks": [
+    {
+      "id": "TASK-01",
+      "title": "Project Scaffold",
+      "status": "completed",
+      "files": ["index.html", "css/style.css", "js/app.js", "README.md"]
+    },
+    {
+      "id": "TASK-02",
+      "title": "HTML Markup",
+      "status": "completed",
+      "files": ["index.html"]
+    },
+    {
+      "id": "TASK-03",
+      "title": "Styling",
+      "status": "completed",
+      "files": ["css/style.css"]
+    },
+    {
+      "id": "TASK-04",
+      "title": "Core Logic — Form & Transactions",
+      "status": "completed",
+      "files": ["js/app.js"]
+    },
+    {
+      "id": "TASK-05",
+      "title": "Total Balance Display",
+      "status": "completed",
+      "files": ["js/app.js"]
+    },
+    {
+      "id": "TASK-06",
+      "title": "Pie Chart (Chart.js)",
+      "status": "completed",
+      "files": ["js/app.js", "index.html"]
+    },
+    {
+      "id": "TASK-07",
+      "title": "Dark / Light Mode Toggle",
+      "status": "completed",
+      "files": ["js/app.js", "css/style.css", "index.html"]
+    },
+    {
+      "id": "TASK-08",
+      "title": "Sort Transactions",
+      "status": "completed",
+      "files": ["js/app.js", "index.html", "css/style.css"]
+    },
+    {
+      "id": "TASK-09",
+      "title": "Custom Categories",
+      "status": "completed",
+      "files": ["js/app.js", "index.html", "css/style.css"]
+    },
+    {
+      "id": "TASK-10",
+      "title": "GitHub Pages Deployment",
+      "status": "pending",
+      "files": ["README.md"]
+    }
+  ],
+  "summary": {
+    "total": 10,
+    "completed": 9,
+    "pending": 1,
+    "inProgress": 0
+  }
+}

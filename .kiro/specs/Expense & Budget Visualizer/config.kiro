@@ -1,0 +1,24 @@
+{
+  "spec": {
+    "name": "Expense & Budget Visualizer",
+    "version": "1.0.0",
+    "description": "A client-side expense tracker and budget visualizer built with vanilla HTML, CSS, and JavaScript.",
+    "entryPoint": "index.html",
+    "techStack": {
+      "structure": "HTML5",
+      "styling": "CSS3",
+      "logic": "Vanilla JavaScript (ES6+)",
+      "chart": "Chart.js v4 (CDN)",
+      "storage": "localStorage"
+    },
+    "folderRules": {
+      "css": "Only 1 file — css/style.css",
+      "js": "Only 1 file — js/app.js"
+    },
+    "deployment": {
+      "method": "GitHub Pages",
+      "branch": "main",
+      "root": "/"
+    }
+  }
+}
