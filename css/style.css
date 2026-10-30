@@ -8,7 +8,7 @@
   --bg:           #bdec1201;
   --surface:      #b1ec1b00;
   --surface-alt:  #f5f6fa;
-  --border:       #06fc33;
+  --border:       #9fdcfc;
   --text:         #1a1b2e;
   --text-muted:   #6b7280;
   --primary:      #6c63ff;
@@ -65,7 +65,7 @@ body {
 /* ── Balance Card ── */
 .balance-card {
   background: linear-gradient(135deg, #05fc46 0%, #a78bfa 100%);
-  color: #bdf004;
+  color: #bdf00402;
   border-radius: var(--radius-lg);
   padding: 1.75rem 2rem;
   margin-bottom: 1.75rem;
