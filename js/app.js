@@ -12,9 +12,9 @@
 const STORAGE_KEY = 'ebv_transactions';
 
 const CATEGORIES = {
-  Food:      { icon: '🍔', color: '#f97316' },
-  Transport: { icon: '🚌', color: '#3b82f6' },
-  Fun:       { icon: '🎉', color: '#a855f7' },
+  Food:      { color: '#16f978' },
+  Transport: { color: '#3bedf6' },
+  Fun:       { color: '#9b55f7' },
 };
 
 /* ──────────────────────────────────────────────

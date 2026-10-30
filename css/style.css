@@ -5,10 +5,10 @@
 
 /* ── Variables ── */
 :root {
-  --bg:           #f0f2f8;
-  --surface:      #ffffff;
+  --bg:           #bdec12;
+  --surface:      #b0ec1b;
   --surface-alt:  #f5f6fa;
-  --border:       #e4e6ef;
+  --border:       #06fc33;
   --text:         #1a1b2e;
   --text-muted:   #6b7280;
   --primary:      #6c63ff;
@@ -64,8 +64,8 @@ body {
 
 /* ── Balance Card ── */
 .balance-card {
-  background: linear-gradient(135deg, #6c63ff 0%, #a78bfa 100%);
-  color: #fff;
+  background: linear-gradient(135deg, #05fc46 0%, #a78bfa 100%);
+  color: #bdf004;
   border-radius: var(--radius-lg);
   padding: 1.75rem 2rem;
   margin-bottom: 1.75rem;
