@@ -64,7 +64,7 @@ body {
 
 /* ── Balance Card ── */
 .balance-card {
-  background: linear-gradient(135deg, #05fc46 0%, #a78bfa 100%);
+  background: linear-gradient(135deg, #7405fc 0%, #76f103 100%);
   color: #bdf00402;
   border-radius: var(--radius-lg);
   padding: 1.75rem 2rem;
