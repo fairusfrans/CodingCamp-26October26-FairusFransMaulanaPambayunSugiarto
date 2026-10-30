@@ -18,13 +18,13 @@
 **Description:** Write semantic HTML for all UI sections.
 **Deliverables:**
 - `<html data-theme="light">` for theme switching
-- App header with title + 🌙 dark mode toggle button
+- App header with title + 🌙 dark mode toggle button (`id="themeToggle"`)
 - Balance card with total amount (`id="totalBalance"`) and dynamic stat pills (`id="balanceStats"`)
 - Two-column main layout (form + list left, chart right)
-- Add Transaction form: Item Name, Amount (Rp), Category `<select>` + ＋ button
-- Custom category inline sub-form (hidden by default, shown via `.open` class)
-- Transaction list with sort bar (Terbaru / Jumlah / Kategori) and empty state
-- Chart section with `<canvas>` and empty state fallback
+- Add Transaction form: Item Name, Amount (Rp), Category `<select>` + ＋ button (`id="openAddCategory"`)
+- Custom category inline sub-form (`id="customCategoryForm"`, hidden by default, shown via `.open` class)
+- Transaction list with sort bar (Terbaru / Jumlah / Kategori via `.btn-sort`) and empty state
+- Chart section with `<canvas id="spendingChart">` and empty state fallback
 
 ---
 
@@ -52,7 +52,7 @@
 **Description:** Implement form submission, validation, and transaction CRUD.
 **Deliverables:**
 - `validateForm()` — checks all fields, shows inline errors per field
-- Form `submit` handler — builds transaction object, saves to `ebv_transactions`
+- Form `submit` handler — builds transaction object `{ id, name, amount, category }`, saves to `ebv_transactions`
 - `renderList()` — renders sorted transaction items with delete buttons
 - Delete via event delegation on `.transaction-list`
 - `loadJSON()` / `saveJSON()` — localStorage read/write helpers
@@ -64,7 +64,7 @@
 **Description:** Calculate and display live totals.
 **Deliverables:**
 - `calcTotals()` — returns grand total + per-category breakdown
-- `renderBalance()` — updates `#totalBalance` and injects category stat pills
+- `renderBalance()` — updates `#totalBalance` and injects category stat pills into `#balanceStats`
 - Auto-updates on every add and delete
 
 ---
@@ -73,7 +73,7 @@
 **Status:** ✅ Completed
 **Description:** Render and update a pie chart of spending by category.
 **Deliverables:**
-- `renderChart()` — creates or updates Chart.js pie instance
+- `renderChart()` — creates or updates Chart.js v4 pie instance
 - Only renders when ≥1 transaction exists; shows empty state otherwise
 - Chart colours match each category's accent colour
 - Tooltips show Rp amount + percentage
@@ -83,34 +83,43 @@
 
 ### TASK-07: Dark Mode Toggle
 **Status:** ✅ Completed
-**Description:** Add a dark mode toggle that persists across refreshes.
+**Description:** Add a dark/light mode toggle that persists across refreshes.
+**Optional Challenge #3 from brief.**
 **Deliverables:**
 - `applyTheme(dark)` — sets `data-theme` attribute on `<html>`
 - Toggle button switches 🌙 ↔ ☀️ icon
-- Preference saved to `ebv_theme` in localStorage
+- Preference saved to `ebv_theme` in localStorage and restored on page load
 - Chart destroyed and rebuilt on toggle so legend/border colours update correctly
+- All UI components (form, list, chart, header, balance card) respond to theme via CSS variables
 
 ---
 
 ### TASK-08: Sort Transactions
 **Status:** ✅ Completed
 **Description:** Allow the user to sort the transaction list by amount or category.
+**Optional Challenge #2 from brief.**
 **Deliverables:**
-- Three sort buttons: **Terbaru** (date, default), **Jumlah** (amount desc), **Kategori** (A–Z)
+- Three sort pill buttons in `.sort-bar`:
+  - **Terbaru** (`data-sort="date"`) — newest first, default
+  - **Jumlah** (`data-sort="amount"`) — highest amount first
+  - **Kategori** (`data-sort="category"`) — alphabetical A → Z
 - `getSortedTransactions()` returns a sorted copy without mutating state
-- Active button highlighted via `.active` class
-- Sort preference saved to `ebv_sort` in localStorage
+- Active button highlighted via `.active` class + `aria-pressed` attribute
+- Sort preference saved to `ebv_sort` in localStorage and restored on page load
 
 ---
 
 ### TASK-09: Custom Categories
 **Status:** ✅ Completed
 **Description:** Let users add their own spending categories beyond the 3 defaults.
+**Optional Challenge #1 from brief.**
 **Deliverables:**
-- ＋ button beside category `<select>` opens inline sub-form
-- `addCustomCategory()` — validates name, checks for duplicates (case-insensitive), assigns colour from `CUSTOM_PALETTE`
+- ＋ button (`id="openAddCategory"`) beside category `<select>` opens inline sub-form
+- `addCustomCategory()` — validates name, checks for duplicates (case-insensitive), assigns colour from `CUSTOM_PALETTE` (8 rotating colours)
+- Batal button and Escape key close the form without saving
+- Enter key in name input triggers save
 - New category appears immediately in `<select>`, pie chart, and balance pills
-- Custom categories persisted to `ebv_categories` in localStorage
+- Custom categories (+ defaults) persisted to `ebv_categories` in localStorage
 
 ---
 

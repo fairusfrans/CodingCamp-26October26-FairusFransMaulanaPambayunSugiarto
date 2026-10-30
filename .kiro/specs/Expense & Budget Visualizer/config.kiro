@@ -19,16 +19,22 @@
       "mvp": [
         "Input form — Item Name, Amount (Rp), Category (Food/Transport/Fun), inline validation",
         "Scrollable transaction list with delete button per item",
-        "Total balance card — auto-updates on add/delete",
-        "Pie chart (Chart.js v4) — spending distribution by category"
+        "Total balance card — auto-updates on add/delete, shows per-category stat pills",
+        "Pie chart (Chart.js v4) — spending distribution by category, empty state fallback"
       ],
       "optional": [
-        "Custom categories — add via ＋ button next to category select, persisted in localStorage",
-        "Sort transactions — by date (newest), amount (highest), or category (A–Z)",
-        "Dark mode toggle — 🌙/☀️ button in header, persisted in localStorage"
+        "Custom categories — add via ＋ button next to category select; duplicate check; colour from CUSTOM_PALETTE; persisted in ebv_categories",
+        "Sort transactions — Terbaru (newest first) / Jumlah (amount desc) / Kategori (A-Z); persisted in ebv_sort",
+        "Dark mode toggle — 🌙/☀️ button in header; sets data-theme on <html>; chart rebuilt on toggle; persisted in ebv_theme"
       ],
-      "currency": "Indonesian Rupiah (Rp) — manual thousand-separator regex, safe across all browsers",
+      "currency": "Indonesian Rupiah (Rp) — manual thousand-separator regex, range Rp 1 – Rp 5.000.000",
       "theme": "Light mode default + dark mode via [data-theme='dark'] on <html>"
+    },
+    "localStorage": {
+      "ebv_transactions": "Array<{id, name, amount, category}>",
+      "ebv_categories":   "Array<{name, icon, color}>",
+      "ebv_sort":         "\"date\" | \"amount\" | \"category\"",
+      "ebv_theme":        "\"light\" | \"dark\""
     },
     "deployment": {
       "method": "GitHub Pages",

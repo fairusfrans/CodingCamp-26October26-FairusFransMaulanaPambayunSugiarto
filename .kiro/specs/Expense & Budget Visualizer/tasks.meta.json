@@ -2,6 +2,11 @@
   "specName": "Expense & Budget Visualizer",
   "version": "1.0.0",
   "lastUpdated": "2026-10-30",
+  "optionalChallengesImplemented": [
+    "Allow users to add custom categories",
+    "Sort transactions by amount or category",
+    "Dark mode toggle"
+  ],
   "tasks": [
     {
       "id": "TASK-01",
@@ -35,7 +40,7 @@
     },
     {
       "id": "TASK-06",
-      "title": "Pie Chart (Chart.js)",
+      "title": "Pie Chart (Chart.js v4)",
       "status": "completed",
       "files": ["js/app.js", "index.html"]
     },
@@ -43,21 +48,24 @@
       "id": "TASK-07",
       "title": "Dark Mode Toggle",
       "status": "completed",
-      "notes": "🌙/☀️ button in header; sets data-theme on <html>; saved to ebv_theme in localStorage",
+      "optionalChallenge": 3,
+      "notes": "🌙/☀️ button in header; sets data-theme on <html>; saved to ebv_theme in localStorage; chart rebuilt on toggle",
       "files": ["js/app.js", "css/style.css", "index.html"]
     },
     {
       "id": "TASK-08",
       "title": "Sort Transactions",
       "status": "completed",
-      "notes": "Sort by date (newest), amount (highest), category (A-Z); saved to ebv_sort",
+      "optionalChallenge": 2,
+      "notes": "3 pill buttons: Terbaru (date), Jumlah (amount desc), Kategori (A-Z); saved to ebv_sort in localStorage",
       "files": ["js/app.js", "index.html", "css/style.css"]
     },
     {
       "id": "TASK-09",
       "title": "Custom Categories",
       "status": "completed",
-      "notes": "＋ button opens inline form; colour from CUSTOM_PALETTE; saved to ebv_categories",
+      "optionalChallenge": 1,
+      "notes": "＋ button opens inline form; duplicate check (case-insensitive); colour from CUSTOM_PALETTE; saved to ebv_categories in localStorage",
       "files": ["js/app.js", "index.html", "css/style.css"]
     },
     {
