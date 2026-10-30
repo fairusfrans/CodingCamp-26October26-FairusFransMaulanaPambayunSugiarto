@@ -5,8 +5,8 @@
 
 /* ── Variables ── */
 :root {
-  --bg:           #bdec12;
-  --surface:      #b0ec1b;
+  --bg:           #bdec1201;
+  --surface:      #b1ec1b00;
   --surface-alt:  #f5f6fa;
   --border:       #06fc33;
   --text:         #1a1b2e;
