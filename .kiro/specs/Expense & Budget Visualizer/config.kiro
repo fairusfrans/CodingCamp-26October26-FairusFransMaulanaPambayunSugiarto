@@ -15,6 +15,11 @@
       "css": "Only 1 file — css/style.css",
       "js": "Only 1 file — js/app.js"
     },
+    "features": {
+      "theme": "light only",
+      "categories": "Food, Transport, Fun (fixed)",
+      "currency": "Indonesian Rupiah (Rp), manual format — no toLocaleString"
+    },
     "deployment": {
       "method": "GitHub Pages",
       "branch": "main",

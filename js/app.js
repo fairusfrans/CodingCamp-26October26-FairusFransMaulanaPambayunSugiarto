@@ -12,9 +12,9 @@
 const STORAGE_KEY = 'ebv_transactions';
 
 const CATEGORIES = {
-  Food:      { color: '#16f978' },
-  Transport: { color: '#3bedf6' },
-  Fun:       { color: '#9b55f7' },
+  Food:      { icon: '🍔', color: '#f97316' },
+  Transport: { icon: '🚌', color: '#3b82f6' },
+  Fun:       { icon: '🎉', color: '#a855f7' },
 };
 
 /* ──────────────────────────────────────────────
@@ -289,9 +289,14 @@ function renderChart() {
    UTILITIES
    ────────────────────────────────────────────── */
 
-/** Format angka menjadi Rupiah — contoh: Rp 15.000 */
+/** Format angka menjadi Rupiah — contoh: Rp 15.000
+ *  Menggunakan format manual agar konsisten di semua browser & OS.
+ */
 function fmt(value) {
-  return 'Rp ' + Math.round(value).toLocaleString('id-ID');
+  const rounded = Math.round(value);
+  // Pisahkan ribuan dengan titik (format Indonesia)
+  const formatted = rounded.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  return 'Rp ' + formatted;
 }
 
 /** Escape karakter HTML untuk mencegah XSS */
