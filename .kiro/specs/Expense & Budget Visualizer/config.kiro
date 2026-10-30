@@ -16,9 +16,19 @@
       "js": "Only 1 file — js/app.js"
     },
     "features": {
-      "theme": "light only",
-      "categories": "Food, Transport, Fun (fixed)",
-      "currency": "Indonesian Rupiah (Rp), manual format — no toLocaleString"
+      "mvp": [
+        "Input form with validation (Item Name, Amount, Category)",
+        "Scrollable transaction list with delete",
+        "Total balance auto-update",
+        "Pie chart (Chart.js) by category"
+      ],
+      "optional": [
+        "Custom categories — add via inline form next to select",
+        "Sort transactions — by date, amount, or category",
+        "Dark/light mode toggle — persisted in localStorage"
+      ],
+      "currency": "Indonesian Rupiah (Rp), manual thousand-separator — no toLocaleString",
+      "theme": "light (default) + dark toggle"
     },
     "deployment": {
       "method": "GitHub Pages",

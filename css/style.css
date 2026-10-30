@@ -1,26 +1,37 @@
 /* ================================================================
    Expense & Budget Visualizer  ·  style.css
-   Dark mode.
+   Light mode default + dark mode via [data-theme="dark"]
    ================================================================ */
 
-/* ── Variables ── */
+/* ── Light mode variables (default) ── */
 :root {
-  --bg:           #0d0d12;
-  --surface:      #16172a;
-  --surface-alt:  #1e1f35;
-  --border:       #2c2e50;
-  --text:         #e8e9f3;
-  --text-muted:   #8b8fa8;
-  --primary:      #7c74ff;
-  --primary-dark: #6c63ff;
-  --danger:       #f87171;
-  --danger-bg:    rgba(248, 113, 113, .12);
-  --shadow:       0 4px 24px rgba(0, 0, 0, .45);
-  --shadow-btn:   0 2px 8px rgba(124, 116, 255, .4);
+  --bg:           #f0f2f8;
+  --surface:      #ffffff;
+  --surface-alt:  #f5f6fa;
+  --border:       #e4e6ef;
+  --text:         #1a1b2e;
+  --text-muted:   #6b7280;
+  --primary:      #6c63ff;
+  --primary-dark: #5a52e0;
+  --danger:       #ef4444;
+  --danger-bg:    rgba(239, 68, 68, .1);
+  --shadow:       0 4px 24px rgba(0, 0, 0, .07);
+  --shadow-btn:   0 2px 8px rgba(108, 99, 255, .3);
   --radius-sm:    8px;
   --radius-md:    14px;
   --radius-lg:    20px;
   --transition:   .18s ease;
+}
+
+/* ── Dark mode overrides ── */
+[data-theme="dark"] {
+  --bg:          #0f1117;
+  --surface:     #1a1d27;
+  --surface-alt: #22263a;
+  --border:      #2e3248;
+  --text:        #e8eaf6;
+  --text-muted:  #9095b0;
+  --shadow:      0 4px 24px rgba(0, 0, 0, .4);
 }
 
 /* ── Reset ── */
@@ -34,6 +45,7 @@ body {
   color: var(--text);
   min-height: 100vh;
   line-height: 1.6;
+  transition: background var(--transition), color var(--transition);
 }
 
 /* ── App Wrapper ── */
@@ -45,9 +57,14 @@ body {
 
 /* ── Header ── */
 .app-header {
-  text-align: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
   margin-bottom: 1.75rem;
 }
+
+.header-left { display: flex; flex-direction: column; }
 
 .app-title {
   font-size: 1.9rem;
@@ -62,10 +79,29 @@ body {
   margin-top: .25rem;
 }
 
+/* Theme toggle button */
+.btn-theme {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition);
+}
+
+.btn-theme:hover { transform: scale(1.1); }
+
 /* ── Balance Card ── */
 .balance-card {
-  background: linear-gradient(135deg, #4a0fa8 0%, #1a6e2e 100%);
-  color: #f0f0ff;
+  background: linear-gradient(135deg, #6c63ff 0%, #a78bfa 100%);
+  color: #fff;
   border-radius: var(--radius-lg);
   padding: 1.75rem 2rem;
   margin-bottom: 1.75rem;
@@ -138,6 +174,7 @@ body {
   border-radius: var(--radius-md);
   padding: 1.5rem;
   box-shadow: var(--shadow);
+  transition: background var(--transition);
 }
 
 .card-title {
@@ -172,7 +209,7 @@ body {
   color: var(--text);
   background: var(--surface-alt);
   outline: none;
-  transition: border-color var(--transition), box-shadow var(--transition);
+  transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
 }
 
 .form-group input:focus,
@@ -195,6 +232,53 @@ body {
 }
 
 .error-msg.visible { display: block; }
+
+/* Category row: select + ＋ button */
+.category-row {
+  display: flex;
+  gap: .5rem;
+}
+
+.category-row select { flex: 1; }
+
+.btn-icon {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  width: 38px;
+  flex-shrink: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.btn-icon:hover { background: var(--primary-dark); transform: scale(1.05); }
+
+/* ── Custom Category inline form ── */
+.custom-category-form {
+  background: var(--surface-alt);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: .85rem 1rem;
+  margin-bottom: .95rem;
+  display: none;
+  flex-direction: column;
+  gap: .6rem;
+  transition: background var(--transition);
+}
+
+.custom-category-form.open {
+  display: flex;
+  animation: fadeIn .15s ease;
+}
+
+.custom-category-actions {
+  display: flex;
+  gap: .5rem;
+  justify-content: flex-end;
+}
 
 /* ── Buttons ── */
 .btn-primary {
@@ -220,12 +304,62 @@ body {
   padding: .7rem;
 }
 
+.btn-secondary {
+  padding: .62rem 1.1rem;
+  background: var(--surface-alt);
+  color: var(--text-muted);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: .88rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.btn-secondary:hover { background: var(--border); }
+
+/* ── Sort Bar ── */
+.sort-bar {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin-bottom: .85rem;
+  flex-wrap: wrap;
+}
+
+.sort-label {
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+.sort-buttons { display: flex; gap: .35rem; }
+
+.btn-sort {
+  padding: .28rem .7rem;
+  background: var(--surface-alt);
+  color: var(--text-muted);
+  border: 1.5px solid var(--border);
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.btn-sort:hover  { border-color: var(--primary); color: var(--primary); }
+.btn-sort.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
 /* ── Transaction List ── */
 .list-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: .9rem;
+  margin-bottom: .6rem;
 }
 
 .list-header .card-title { margin-bottom: 0; }
@@ -320,8 +454,8 @@ body {
   text-align: center;
 }
 
-.empty-icon        { font-size: 2.2rem; }
-.empty-state p     { font-size: .87rem; line-height: 1.65; }
+.empty-icon    { font-size: 2.2rem; }
+.empty-state p { font-size: .87rem; line-height: 1.65; }
 
 /* ── Chart ── */
 .chart-card { position: sticky; top: 1.5rem; }
@@ -352,14 +486,19 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 /* ── Responsive ── */
 @media (max-width: 780px) {
-  .main-content  { grid-template-columns: 1fr; }
-  .chart-card    { position: static; }
-  .balance-card  { flex-direction: column; align-items: flex-start; }
-  .balance-stats { justify-content: flex-start; }
+  .main-content   { grid-template-columns: 1fr; }
+  .chart-card     { position: static; }
+  .balance-card   { flex-direction: column; align-items: flex-start; }
+  .balance-stats  { justify-content: flex-start; }
   .balance-amount { font-size: 1.8rem; }
-  .app-title     { font-size: 1.55rem; }
+  .app-title      { font-size: 1.55rem; }
 }
 
 @media (max-width: 480px) {

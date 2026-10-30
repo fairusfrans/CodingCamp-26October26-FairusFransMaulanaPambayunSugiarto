@@ -17,7 +17,7 @@
     },
     {
       "id": "TASK-03",
-      "title": "Styling",
+      "title": "Styling — light/dark theme",
       "status": "completed",
       "files": ["css/style.css"]
     },
@@ -60,14 +60,15 @@
     {
       "id": "TASK-10",
       "title": "GitHub Pages Deployment",
-      "status": "pending",
+      "status": "completed",
+      "url": "https://fairusfrans.github.io/CodingCamp-26October26-FairusFransMaulanaPambayunSugiarto/",
       "files": ["README.md"]
     }
   ],
   "summary": {
     "total": 10,
-    "completed": 9,
-    "pending": 1,
+    "completed": 10,
+    "pending": 0,
     "inProgress": 0
   }
 }

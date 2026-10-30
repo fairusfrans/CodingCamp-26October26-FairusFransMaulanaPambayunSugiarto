@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,8 +12,14 @@
 
       <!-- Header -->
       <header class="app-header">
-        <h1 class="app-title">💸 Expense &amp; Budget Visualizer</h1>
-        <p class="app-subtitle">Track your spending with ease</p>
+        <div class="header-left">
+          <h1 class="app-title">💰 Expense &amp; Budget Visualizer</h1>
+          <p class="app-subtitle">Track your spending with ease</p>
+        </div>
+        <!-- Dark/Light mode toggle -->
+        <button class="btn-theme" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark / light mode">
+          <span class="theme-icon">🌙</span>
+        </button>
       </header>
 
       <!-- Balance Card -->
@@ -22,19 +28,8 @@
           <span class="balance-label">Total Spent</span>
           <span class="balance-amount" id="totalBalance">Rp 0</span>
         </div>
-        <div class="balance-stats">
-          <div class="stat-pill">
-            <span class="stat-pill-label"> Food</span>
-            <span class="stat-pill-value" id="statFood">Rp 0</span>
-          </div>
-          <div class="stat-pill">
-            <span class="stat-pill-label"> Transport</span>
-            <span class="stat-pill-value" id="statTransport">Rp 0</span>
-          </div>
-          <div class="stat-pill">
-            <span class="stat-pill-label"> Fun</span>
-            <span class="stat-pill-value" id="statFun">Rp 0</span>
-          </div>
+        <div class="balance-stats" id="balanceStats">
+          <!-- category pills injected by JS -->
         </div>
       </section>
 
@@ -74,13 +69,34 @@
 
               <div class="form-group">
                 <label for="category">Category</label>
-                <select id="category">
-                  <option value="">— Pilih kategori —</option>
-                  <option value="Food"> Food</option>
-                  <option value="Transport"> Transport</option>
-                  <option value="Fun"> Fun</option>
-                </select>
+                <div class="category-row">
+                  <select id="category">
+                    <option value="">— Pilih kategori —</option>
+                    <!-- options injected by JS -->
+                  </select>
+                  <!-- Custom category button -->
+                  <button type="button" class="btn-icon" id="openAddCategory" title="Tambah kategori baru" aria-label="Tambah kategori baru">＋</button>
+                </div>
                 <span class="error-msg" id="categoryError">Pilih kategori terlebih dahulu.</span>
+              </div>
+
+              <!-- Custom category inline form (hidden by default) -->
+              <div class="custom-category-form" id="customCategoryForm" aria-hidden="true">
+                <div class="form-group">
+                  <label for="newCategoryName">Nama Kategori Baru</label>
+                  <input
+                    type="text"
+                    id="newCategoryName"
+                    placeholder="e.g. Kesehatan, Belanja…"
+                    maxlength="30"
+                    autocomplete="off"
+                  />
+                  <span class="error-msg" id="newCategoryError">Masukkan nama kategori.</span>
+                </div>
+                <div class="custom-category-actions">
+                  <button type="button" class="btn-secondary" id="cancelAddCategory">Batal</button>
+                  <button type="button" class="btn-primary" id="confirmAddCategory">Tambah</button>
+                </div>
               </div>
 
               <button type="submit" class="btn-primary btn-full">Add Transaction</button>
@@ -92,6 +108,16 @@
             <div class="list-header">
               <h2 class="card-title" id="listTitle">Transactions</h2>
               <span class="transaction-count" id="transactionCount">0 items</span>
+            </div>
+
+            <!-- Sort controls -->
+            <div class="sort-bar">
+              <span class="sort-label">Urutkan:</span>
+              <div class="sort-buttons" role="group" aria-label="Urutkan transaksi">
+                <button class="btn-sort active" data-sort="date"     aria-pressed="true">Terbaru</button>
+                <button class="btn-sort"        data-sort="amount"   aria-pressed="false">Jumlah</button>
+                <button class="btn-sort"        data-sort="category" aria-pressed="false">Kategori</button>
+              </div>
             </div>
 
             <div class="transaction-list" id="transactionList" role="list">

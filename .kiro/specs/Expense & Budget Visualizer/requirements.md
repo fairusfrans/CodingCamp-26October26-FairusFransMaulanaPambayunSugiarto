@@ -48,7 +48,7 @@
 ## Required Features (MVP)
 
 ### FR-1: Input Form
-- Fields: Item Name, Amount, Category (Food, Transport, Fun)
+- Fields: Item Name, Amount (Rp), Category (Food, Transport, Fun)
 - Adds a transaction to the list on submit
 - Validates that all fields are filled before submitting
 
@@ -80,7 +80,15 @@
 
 ---
 
+## Currency
+- All amounts displayed in Indonesian Rupiah (Rp)
+- Format: `Rp 15.000` (manual regex — safe across all browsers and OS)
+- Range: Rp 1 – Rp 5.000.000 per transaction
+
+---
+
 ## Deployment
 - Source: GitHub repository
 - Host: GitHub Pages
 - Branch: `main`, root `/`
+- Live URL: https://fairusfrans.github.io/CodingCamp-26October26-FairusFransMaulanaPambayunSugiarto/
