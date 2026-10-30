@@ -1,22 +1,22 @@
 /* ================================================================
    Expense & Budget Visualizer  ·  style.css
-   Light mode only.
+   Dark mode.
    ================================================================ */
 
 /* ── Variables ── */
 :root {
-  --bg:           #bdec1201;
-  --surface:      #b1ec1b00;
-  --surface-alt:  #f5f6fa;
-  --border:       #9fdcfc;
-  --text:         #1a1b2e;
-  --text-muted:   #6b7280;
-  --primary:      #6c63ff;
-  --primary-dark: #5a52e0;
-  --danger:       #ef4444;
-  --danger-bg:    rgba(239, 68, 68, .1);
-  --shadow:       0 4px 24px rgba(0, 0, 0, .07);
-  --shadow-btn:   0 2px 8px rgba(108, 99, 255, .3);
+  --bg:           #0d0d12;
+  --surface:      #16172a;
+  --surface-alt:  #1e1f35;
+  --border:       #2c2e50;
+  --text:         #e8e9f3;
+  --text-muted:   #8b8fa8;
+  --primary:      #7c74ff;
+  --primary-dark: #6c63ff;
+  --danger:       #f87171;
+  --danger-bg:    rgba(248, 113, 113, .12);
+  --shadow:       0 4px 24px rgba(0, 0, 0, .45);
+  --shadow-btn:   0 2px 8px rgba(124, 116, 255, .4);
   --radius-sm:    8px;
   --radius-md:    14px;
   --radius-lg:    20px;
@@ -64,8 +64,8 @@ body {
 
 /* ── Balance Card ── */
 .balance-card {
-  background: linear-gradient(135deg, #7405fc 0%, #76f103 100%);
-  color: #bdf00402;
+  background: linear-gradient(135deg, #4a0fa8 0%, #1a6e2e 100%);
+  color: #f0f0ff;
   border-radius: var(--radius-lg);
   padding: 1.75rem 2rem;
   margin-bottom: 1.75rem;
