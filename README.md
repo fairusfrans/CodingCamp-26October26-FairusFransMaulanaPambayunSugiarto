@@ -38,8 +38,7 @@ A clean, minimal web app to track personal expenses and visualize spending by ca
 
 ## 🌐 Live Demo
 
-Deployed via **GitHub Pages**: [View Site](https://github.com/fairusfrans/CodingCamp-26October26-FairusFransMaulanaPambayunSugiarto)  
-*(Update this link after publishing to GitHub Pages)*
+Deployed via **GitHub Pages**: [https://fairusfrans.github.io/CodingCamp-26October26-FairusFransMaulanaPambayunSugiarto/](https://fairusfrans.github.io/CodingCamp-26October26-FairusFransMaulanaPambayunSugiarto/)
 
 ## 🛠️ Tech Stack
 

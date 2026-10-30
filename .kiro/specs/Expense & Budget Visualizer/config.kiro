@@ -18,7 +18,8 @@
     "deployment": {
       "method": "GitHub Pages",
       "branch": "main",
-      "root": "/"
+      "root": "/",
+      "url": "https://fairusfrans.github.io/CodingCamp-26October26-FairusFransMaulanaPambayunSugiarto/"
     }
   }
 }

@@ -112,8 +112,9 @@
 ---
 
 ### TASK-10: GitHub Pages Deployment
-**Status:** ⬜ Pending  
+**Status:** ✅ Completed  
 **Description:** Publish the site via GitHub Pages.  
+**Live URL:** [https://fairusfrans.github.io/CodingCamp-26October26-FairusFransMaulanaPambayunSugiarto/]
 **Steps:**
 1. Commit all files and push to GitHub (`main` branch)
 2. Go to repository **Settings → Pages**
