@@ -13,22 +13,22 @@
     },
     "folderRules": {
       "css": "Only 1 file — css/style.css",
-      "js": "Only 1 file — js/app.js"
+      "js":  "Only 1 file — js/app.js"
     },
     "features": {
       "mvp": [
-        "Input form with validation (Item Name, Amount, Category)",
-        "Scrollable transaction list with delete",
-        "Total balance auto-update",
-        "Pie chart (Chart.js) by category"
+        "Input form — Item Name, Amount (Rp), Category (Food/Transport/Fun), inline validation",
+        "Scrollable transaction list with delete button per item",
+        "Total balance card — auto-updates on add/delete",
+        "Pie chart (Chart.js v4) — spending distribution by category"
       ],
       "optional": [
-        "Custom categories — add via inline form next to select",
-        "Sort transactions — by date, amount, or category",
-        "Dark/light mode toggle — persisted in localStorage"
+        "Custom categories — add via ＋ button next to category select, persisted in localStorage",
+        "Sort transactions — by date (newest), amount (highest), or category (A–Z)",
+        "Dark mode toggle — 🌙/☀️ button in header, persisted in localStorage"
       ],
-      "currency": "Indonesian Rupiah (Rp), manual thousand-separator — no toLocaleString",
-      "theme": "light (default) + dark toggle"
+      "currency": "Indonesian Rupiah (Rp) — manual thousand-separator regex, safe across all browsers",
+      "theme": "Light mode default + dark mode via [data-theme='dark'] on <html>"
     },
     "deployment": {
       "method": "GitHub Pages",

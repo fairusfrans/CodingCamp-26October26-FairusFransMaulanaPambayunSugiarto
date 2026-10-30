@@ -64,26 +64,27 @@
 ### FR-4: Visual Chart
 - Pie chart showing spending distribution by category
 - Chart updates automatically when transactions change
-- Implemented using Chart.js (loaded via CDN)
+- Implemented using Chart.js v4 (loaded via CDN)
 
 ---
 
 ## Optional Challenges (Implemented: 3 / 5)
 
-| # | Challenge | Status |
-|---|---|---|
-| 1 | Allow users to add custom categories | ✅ Done |
-| 2 | Sort transactions by amount or category | ✅ Done |
-| 3 | Dark / light mode toggle | ✅ Done |
-| 4 | Export data to CSV | — |
-| 5 | Budget limit warnings per category | — |
+| # | Challenge | Status | Implementation |
+|---|---|---|---|
+| 1 | Allow users to add custom categories | ✅ Done | ＋ button opens inline form; saved to `ebv_categories` in localStorage |
+| 2 | Sort transactions by amount or category | ✅ Done | Sort bar with 3 buttons: Terbaru / Jumlah / Kategori; saved to `ebv_sort` |
+| 3 | Dark mode toggle | ✅ Done | 🌙/☀️ button in header; sets `data-theme` on `<html>`; saved to `ebv_theme` |
+| 4 | Export data to CSV | — | Not implemented |
+| 5 | Budget limit warnings per category | — | Not implemented |
 
 ---
 
 ## Currency
 - All amounts displayed in Indonesian Rupiah (Rp)
-- Format: `Rp 15.000` (manual regex — safe across all browsers and OS)
-- Range: Rp 1 – Rp 5.000.000 per transaction
+- Format example: `Rp 15.000`, `Rp 1.250.000`
+- Manual regex formatting — does not use `toLocaleString()`, safe across all browsers and OS
+- Valid range per transaction: Rp 1 – Rp 5.000.000
 
 ---
 

@@ -17,28 +17,32 @@
 **Status:** ✅ Completed
 **Description:** Write semantic HTML for all UI sections.
 **Deliverables:**
-- App header with title and dark/light mode toggle button
-- Balance card with total amount and per-category stat pills (injected by JS)
-- Two-column main layout (form + list on the left, chart on the right)
-- Add Transaction form: Item Name, Amount (Rp), Category select + ＋ button
-- Custom category inline sub-form (hidden by default)
+- `<html data-theme="light">` for theme switching
+- App header with title + 🌙 dark mode toggle button
+- Balance card with total amount (`id="totalBalance"`) and dynamic stat pills (`id="balanceStats"`)
+- Two-column main layout (form + list left, chart right)
+- Add Transaction form: Item Name, Amount (Rp), Category `<select>` + ＋ button
+- Custom category inline sub-form (hidden by default, shown via `.open` class)
 - Transaction list with sort bar (Terbaru / Jumlah / Kategori) and empty state
-- Chart section with canvas element and empty state
+- Chart section with `<canvas>` and empty state fallback
 
 ---
 
 ### TASK-03: Styling (css/style.css)
 **Status:** ✅ Completed
-**Description:** Style the entire app in a single CSS file with light/dark theme support.
+**Description:** Style the entire app in a single CSS file with light and dark theme.
 **Deliverables:**
-- CSS custom properties for light theme (`:root`) and dark theme (`[data-theme="dark"]`)
-- Responsive two-column grid (collapses to single column on mobile at 780px)
-- Balance card with purple gradient background
-- Form styles with focus and validation error states
-- Custom category form (hidden/open via `.open` class)
-- Sort bar pill button styles with active state
-- Transaction item styles with category colour accent on left border
-- Slide-in and fade-in animations
+- `:root` CSS variables — light theme (default)
+- `[data-theme="dark"]` CSS variables — dark theme override
+- `body` transition for smooth theme switching
+- Responsive two-column grid → single column at 780px
+- Purple gradient balance card
+- Form focus, validation error, and invalid states
+- `.category-row` flex layout for select + ＋ button
+- `.custom-category-form` hidden/open via `.open` class with `fadeIn` animation
+- `.sort-bar` pill buttons with `.active` state
+- `.transaction-item` with colour accent `border-left`, `slideIn` animation
+- `.btn-theme` circular toggle button
 - Mobile breakpoints at 780px and 480px
 
 ---
@@ -47,11 +51,11 @@
 **Status:** ✅ Completed
 **Description:** Implement form submission, validation, and transaction CRUD.
 **Deliverables:**
-- `validateForm()` — checks all fields, shows inline errors
-- Form submit handler — creates transaction object, saves to localStorage
+- `validateForm()` — checks all fields, shows inline errors per field
+- Form `submit` handler — builds transaction object, saves to `ebv_transactions`
 - `renderList()` — renders sorted transaction items with delete buttons
-- Delete handler (event delegation on the list container)
-- `loadJSON()` / `saveJSON()` — localStorage helpers
+- Delete via event delegation on `.transaction-list`
+- `loadJSON()` / `saveJSON()` — localStorage read/write helpers
 
 ---
 
@@ -59,9 +63,9 @@
 **Status:** ✅ Completed
 **Description:** Calculate and display live totals.
 **Deliverables:**
-- `calcTotals()` — sums grand total and per-category totals
-- `renderBalance()` — updates balance amount and category stat pills
-- Balance updates on every add and delete
+- `calcTotals()` — returns grand total + per-category breakdown
+- `renderBalance()` — updates `#totalBalance` and injects category stat pills
+- Auto-updates on every add and delete
 
 ---
 
@@ -69,46 +73,44 @@
 **Status:** ✅ Completed
 **Description:** Render and update a pie chart of spending by category.
 **Deliverables:**
-- `renderChart()` — creates or updates Chart.js pie chart
-- Chart only renders when at least one transaction exists
-- Empty state shown when no data
-- Chart colours match category accent colours
-- Tooltips show Rupiah amount and percentage
-- Chart legend colour adapts to active theme
+- `renderChart()` — creates or updates Chart.js pie instance
+- Only renders when ≥1 transaction exists; shows empty state otherwise
+- Chart colours match each category's accent colour
+- Tooltips show Rp amount + percentage
+- Chart legend and border colour respond to active theme
 
 ---
 
-### TASK-07: Dark / Light Mode Toggle
+### TASK-07: Dark Mode Toggle
 **Status:** ✅ Completed
-**Description:** Add a theme toggle that persists across refreshes.
+**Description:** Add a dark mode toggle that persists across refreshes.
 **Deliverables:**
 - `applyTheme(dark)` — sets `data-theme` attribute on `<html>`
-- Toggle button switches 🌙 / ☀️ icon
-- Theme preference saved in localStorage (`ebv_theme`)
-- Chart legend and border colour adapts to active theme
+- Toggle button switches 🌙 ↔ ☀️ icon
+- Preference saved to `ebv_theme` in localStorage
+- Chart destroyed and rebuilt on toggle so legend/border colours update correctly
 
 ---
 
 ### TASK-08: Sort Transactions
 **Status:** ✅ Completed
-**Description:** Allow the user to sort the transaction list.
+**Description:** Allow the user to sort the transaction list by amount or category.
 **Deliverables:**
-- Sort buttons: Terbaru (default), Jumlah, Kategori
-- `getSortedTransactions()` — returns sorted copy of transactions array
-- Active sort button highlighted
-- Sort preference persisted in localStorage (`ebv_sort`)
+- Three sort buttons: **Terbaru** (date, default), **Jumlah** (amount desc), **Kategori** (A–Z)
+- `getSortedTransactions()` returns a sorted copy without mutating state
+- Active button highlighted via `.active` class
+- Sort preference saved to `ebv_sort` in localStorage
 
 ---
 
 ### TASK-09: Custom Categories
 **Status:** ✅ Completed
-**Description:** Let users add their own spending categories.
+**Description:** Let users add their own spending categories beyond the 3 defaults.
 **Deliverables:**
-- ＋ button next to category select opens inline form
-- `addCustomCategory()` — validates, assigns colour from palette, saves to localStorage
-- New category immediately available in select dropdown and pie chart
-- Duplicate name check (case-insensitive)
-- Custom categories persist in localStorage (`ebv_categories`)
+- ＋ button beside category `<select>` opens inline sub-form
+- `addCustomCategory()` — validates name, checks for duplicates (case-insensitive), assigns colour from `CUSTOM_PALETTE`
+- New category appears immediately in `<select>`, pie chart, and balance pills
+- Custom categories persisted to `ebv_categories` in localStorage
 
 ---
 
@@ -119,5 +121,5 @@
 **Steps:**
 1. Commit all files and push to GitHub (`main` branch)
 2. Go to repository **Settings → Pages**
-3. Set source to `main` branch, root `/`
-4. Save — GitHub Pages provides the public URL above
+3. Set source: `main` branch, root `/`
+4. Save — GitHub Pages publishes the live URL above

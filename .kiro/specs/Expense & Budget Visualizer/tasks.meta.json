@@ -17,7 +17,7 @@
     },
     {
       "id": "TASK-03",
-      "title": "Styling — light/dark theme",
+      "title": "Styling — light & dark theme",
       "status": "completed",
       "files": ["css/style.css"]
     },
@@ -41,20 +41,23 @@
     },
     {
       "id": "TASK-07",
-      "title": "Dark / Light Mode Toggle",
+      "title": "Dark Mode Toggle",
       "status": "completed",
+      "notes": "🌙/☀️ button in header; sets data-theme on <html>; saved to ebv_theme in localStorage",
       "files": ["js/app.js", "css/style.css", "index.html"]
     },
     {
       "id": "TASK-08",
       "title": "Sort Transactions",
       "status": "completed",
+      "notes": "Sort by date (newest), amount (highest), category (A-Z); saved to ebv_sort",
       "files": ["js/app.js", "index.html", "css/style.css"]
     },
     {
       "id": "TASK-09",
       "title": "Custom Categories",
       "status": "completed",
+      "notes": "＋ button opens inline form; colour from CUSTOM_PALETTE; saved to ebv_categories",
       "files": ["js/app.js", "index.html", "css/style.css"]
     },
     {
